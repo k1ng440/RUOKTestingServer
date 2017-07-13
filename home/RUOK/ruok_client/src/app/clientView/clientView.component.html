@@ -1,0 +1,16 @@
+<div class="login-page">
+	<div class="row">
+		<div class="col-lg-8 offset-lg-2">
+        	<img src="assets/img/SB-admin.png" width="150px;" class="user-avatar" />
+			<h1>R U OK?</h1>
+				<div class="successMsg"> {{ successmsg }} </div>
+				<div class="errorMsg"> {{ errormsg }} </div>
+				<div *ngIf="show">
+					How do you feel now? &nbsp;
+					<button class="btn rounded-btn btn-success" (click)="better()"> Better </button>&nbsp;
+					<button class="btn rounded-btn btn-warning" (click)="sameworse('Same')"> Same </button>&nbsp;
+					<button class="btn rounded-btn btn-danger" (click)="sameworse('Worse')"> Worse </button>&nbsp;
+				</div>
+		</div>	
+	</div>
+</div>

@@ -1,0 +1,25 @@
+<div class="login-page">
+	<div class="row">
+		<div class="col-lg-8 offset-lg-2">
+        	<img src="assets/img/SB-admin.png" width="150px;" class="user-avatar" />
+			<h1>R U OK?</h1>
+			<div class="successMsg"> {{ successmsg }} </div>
+			<div class="errorMsg"> {{ errormsg }} </div>
+			<div *ngIf="show">
+				<div>
+					Would you like a provider to contact you in the next few hours?
+					<button class="btn rounded-btn btn-success" (click)="yes()"> Yes </button>&nbsp;
+					<button class="btn rounded-btn btn-danger" (click)="no()"> No </button>&nbsp;	
+				</div>	
+				<div *ngIf="showarea">
+					<form role="from" #f="ngForm" >
+						<div class="form-group">
+							<textarea class="from-control" name="desc" id="desc" placeholder=" Enter description" rows="3"  cols="40" [(ngModel)]="response.desc"></textarea>
+						</div>
+						<button class="btn rounded-btn btn-success" (click)="finalSubmit()">SUBMIT</button>
+					</form>	
+				</div>	
+			</div>		
+		</div>	
+	</div>
+</div>

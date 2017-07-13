@@ -1,0 +1,118 @@
+{
+    "data": [
+        {
+            "name": "Pending Text",
+            "link": "pendingText",
+            "glyph": "fa fa-fw fa-clock-o",
+            "children": [],
+            "collapse": false
+        },
+        {
+            "name": "Completed Text",
+            "link": "completedText",
+            "glyph": "fa fa-fw fa-table",
+            "children": [],
+            "collapse": false
+        },
+        {
+            "name": "Add New Client",
+            "link": "addPatient",
+            "glyph": "fa fa-fw fa-user-plus",
+            "children": [],
+            "collapse": false
+        },
+        {
+            "name": "Components",
+            "link": "components",
+            "glyph": "fa fa-fw fa-plus",
+            "children": [
+                {
+                    "name": "Accordion",
+                    "link": "accordion",
+                    "glyph": ""
+                },
+                {
+                    "name": "Alerts",
+                    "link": "alert",
+                    "glyph": ""
+                },
+                {
+                    "name": "Buttons",
+                    "link": "button",
+                    "glyph": ""
+                },
+                {
+                    "name": "Carousel",
+                    "link": "carousel",
+                    "glyph": ""
+                },
+                {
+                    "name": "Collapsed",
+                    "link": "collapse",
+                    "glyph": ""
+                },
+                {
+                    "name": "Date Picker",
+                    "link": "date_picker",
+                    "glyph": ""
+                },
+                {
+                    "name": "Dropdowns",
+                    "link": "dropdown",
+                    "glyph": ""
+                },
+                {
+                    "name": "Modals",
+                    "link": "modal",
+                    "glyph": ""
+                },
+                {
+                    "name": "Pagination",
+                    "link": "pagination",
+                    "glyph": ""
+                },
+                {
+                    "name": "Popover",
+                    "link": "popover",
+                    "glyph": ""
+                },
+                {
+                    "name": "Progress Bar",
+                    "link": "progress",
+                    "glyph": ""
+                },
+                {
+                    "name": "Ratings",
+                    "link": "ratings",
+                    "glyph": ""
+                },
+                {
+                    "name": "Sortable",
+                    "link": "sortable",
+                    "glyph": ""
+                },
+                {
+                    "name": "Tabs",
+                    "link": "tabs",
+                    "glyph": ""
+                },
+                {
+                    "name": "Time Picker",
+                    "link": "timepicker",
+                    "glyph": ""
+                },
+                {
+                    "name": "Tooltip",
+                    "link": "tooltip",
+                    "glyph": ""
+                },
+                {
+                    "name": "Typeahead",
+                    "link": "typeahead",
+                    "glyph": ""
+                }
+            ],
+            "collapse": true
+        }
+    ]
+}

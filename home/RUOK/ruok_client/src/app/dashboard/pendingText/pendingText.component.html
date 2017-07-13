@@ -1,0 +1,67 @@
+<div class="container-fluid">  
+    <div class="row">
+        <div class="col-xl-12">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <i class="fa fa-fw fa-dashboard"></i>
+                        Dashboard
+                </li>
+                <li class="breadcrumb-item active">
+                    <i class="fa fa-fw fa-clock-o"></i> Pending Text
+                </li>
+            </ol>
+        </div>
+    </div>
+          
+    <div class="row">
+        <div class="well col-lg-12">
+            <div class="card card-default">
+                <div class="card-header">
+                    <i><b><u>Pending Texts</u></b></i> 
+                </div>
+                <div class="container" style="padding-top: 20px;">
+                    <div class="well col-lg-12">
+                        <div class="container-content">
+                            <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="8">
+                                <thead>
+                                    <tr>
+                                        <th><mfDefaultSorter by="msgSendTime">Followup Text Time <i class="fa fa-sort"></i> </mfDefaultSorter></th>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Contact Number</th>
+                                        <th>Discharge</th>
+                                        <th>Follow up question</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let patient of mf.data">
+                                        <td> {{ patient.msgSendTime | date :'short' }} </td>
+                                        <td> {{ patient.patientId }} </td>
+                                        <td> {{ patient.firstName }} </td>
+                                        <td> {{ patient.patContactNo }} </td>
+                                        <td> {{ patient.dischargeProblem }} </td>
+                                        <td> {{ patient.comments }} </td>
+                                    </tr> 
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="4">
+                                            <mfBootstrapPaginator></mfBootstrapPaginator>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <div class="errorMsg"> {{ msg }} </div>
+                        </div>
+                    </div>
+                </div>
+            </div>     
+        </div>
+    </div>
+</div>
+
+     
+
+
+
+

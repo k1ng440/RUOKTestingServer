@@ -1,0 +1,152 @@
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <i class="fa fa-dashboard"></i>
+                      Dashboard
+                </li>
+                <li class="breadcrumb-item active">
+                    <i class="fa fa-user-plus"></i> Add New Client
+                </li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="well col-lg-12">
+            <div class="card card-default">
+                <div class="card-header">
+                    <i><b><u>Add New Client</u></b></i>
+                </div>
+                <div class="alert alert-success" *ngIf="success">
+                    <strong>{{successmsg}}</strong>
+                </div>
+                <div class="alert alert-danger" *ngIf="error">
+                    <strong>{{msg}}</strong>
+                </div>
+                <div class="container" style="padding-top: 20px;">
+
+                  <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && addNewPatient(f)">
+                    <div class="well col-md-12">
+                      <div class="container-content">
+
+                        <div class="form-horizontal">
+                          <div class="form-group">
+                            <label class="control-label col-md-3" for="patientId">Client ID</label>
+                            <div class="col-md-6">
+                              <input type="text" class="form-control" id="patientId" name="patientId" placeholder="Enter Account #" [(ngModel)]="model.patientId" #patientId="ngModel" required>
+                            <div *ngIf="f.submitted && patientId.hasError('required')" class="errorMsg">Client ID is required</div>
+                            </div>
+                          </div>
+
+                     <!-- <div class="form-group">
+                            <label class="control-label col-md-3" for="firstName">First Name</label>
+                            <div class="col-md-6">
+                              <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter First Name" [(ngModel)]="model.firstName" #firstName="ngModel">
+                              <div *ngIf="f.submitted && firstName.hasError('required')" class="errorMsg">First Name is required</div>
+                            </div>
+                          </div>  -->
+
+                          <div class="form-group mobile-input-ss">
+                            <label class="control-label col-md-3" for="proContactNo">Your contact number</label>
+                            <div class="col-md-1 flleft">
+                              <input type="text" class="form-control" value="+1" readonly required>
+                            </div>
+                            <div class="col-md-5 flleft">
+                              <input type="text" class="form-control" value={{CN}} id="proContactNo" name="proContactNo" pattern="^\d+$" required>
+                              <div *ngIf="f.submitted && proContactNo.hasError('required')" class="errorMsg">Contact number is required</div>
+                              <div *ngIf="f.submitted && proContactNo.hasError('pattern')" class="errorMsg">Only digits are allowed</div>
+                            </div>
+                          </div>
+
+                          <div class="form-group mobile-input-ss">
+                            <label class="control-label col-md-3" for="patContactNo">Client contact number</label>
+                            <div class="col-md-1 flleft">
+                              <input type="text" class="form-control" value="+1" readonly required>
+                            </div>
+                            <div class="col-md-5 flleft">
+                              <input type="text" class="form-control" id="patContactNo" name="patContactNo" placeholder="Enter Client contact number" [(ngModel)]="model.patContactNo" #patContactNo="ngModel" pattern="^\d+$" required>
+                              <div *ngIf="f.submitted && patContactNo.hasError('required')" class="errorMsg">Contact number is required</div>
+                              <div *ngIf="f.submitted && patContactNo.hasError('pattern')" class="errorMsg">Only digits are allowed</div>
+                            </div>
+                          </div>
+
+                        <!-- <div class="form-group">
+                            <label class="control-label col-md-3" for="dischargeProblem">Discharge Problem</label>
+                            <div class="col-md-6">
+                              <textarea class="form-control" id="disProblem" name="disProblem" placeholder="Enter discharge problem" rows="2" [(ngModel)]="model.disProblem" #disProblem="ngModel"></textarea>
+                            </div>
+                          </div>  -->
+
+                          <div class="form-group">
+                            <label class="control-label col-md-3" for="followUpTime">Follow up Date and Time</label>
+                            <div class="col-md-3 flleft">
+
+                            <!--  <select class="form-control" name="followUpType" id="followUpType" [(ngModel)]="model.followUpType" #followUpType="ngModel" required (change)="onChange(followUpType.value)">
+                                <option *ngFor="let type of types" [ngValue]="type.value">{{type.label}}</option>
+                              </select>
+
+                              <div *ngIf="f.submitted && ( followUpType.hasError('required') || followUpTime.hasError('required'))" class="errorMsg">FollowUp time is required</div> -->
+
+
+                           <ng2-datepicker [options]="options" [(ngModel)]="date" [ngModelOptions]="{standalone: true}"></ng2-datepicker>
+                        </div>
+<div>{{ debug }}</div>
+	<div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-primary" *ngFor="let item of radioItems">
+      <input type="radio" name="options" (click)="model.options = item"
+       [checked]="item === model.options">
+      {{item}}
+    </label>
+</div>
+      	<div class="btn-group" data-toggle="buttons">
+        		<label class="btn btn-primary">
+        			<input type="radio" name="opt" id="opt1" autocomplete="off">10:00 AM
+        		</label>
+
+        		<label class="btn btn-primary">
+        			<input type="radio" name="opt" id="opt2" autocomplete="off" >NOON
+        		</label>
+
+        		<label class="btn btn-primary">
+        			<input type="radio" name="opt" id="opt3" autocomplete="off" >3:00 PM
+        		</label>
+
+        		<label class="btn btn-primary">
+        			<input type="radio" name="opt" id="opt4" autocomplete="off" >7:00 PM
+        		</label>
+        	</div>
+
+
+                           <!-- <div class="col-md-3 flleft">
+                              <select class="form-control" name="followUpTime" id="followUpTime" [(ngModel)]="model.followUpTime" #followUpTime="ngModel" required>
+                                <option *ngFor="let type of time" [ngValue]="type">{{type}}</option>
+                              </select>
+                            </div> -->
+
+                          </div>
+
+                      <!--    <div class="form-group">
+                            <label class="control-label col-md-3" for="comments">Comments</label>
+                            <div class="col-md-6">
+                              <textarea class="form-control" name="comments" id="comments" placeholder="Enter a specific question for the patient" rows="2" [(ngModel)]="model.comments" #comments="ngModel"></textarea>
+                            </div>
+                          </div>  -->
+
+                          <div class="form-group">
+                            <label class="control-label col-md-3" for="comments">&nbsp;</label>
+                            <div class="col-md-6">
+                              <button type="submit" class="btn btn-primary complete">SAVE</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
