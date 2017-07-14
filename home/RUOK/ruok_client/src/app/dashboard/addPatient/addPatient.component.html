@@ -41,14 +41,6 @@
                             </div>
                           </div>
 
-                     <!-- <div class="form-group">
-                            <label class="control-label col-md-3" for="firstName">First Name</label>
-                            <div class="col-md-6">
-                              <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter First Name" [(ngModel)]="model.firstName" #firstName="ngModel">
-                              <div *ngIf="f.submitted && firstName.hasError('required')" class="errorMsg">First Name is required</div>
-                            </div>
-                          </div>  -->
-
                           <div class="form-group mobile-input-ss">
                             <label class="control-label col-md-3" for="proContactNo">Your contact number</label>
                             <div class="col-md-1 flleft">
@@ -73,67 +65,31 @@
                             </div>
                           </div>
 
-                        <!-- <div class="form-group">
-                            <label class="control-label col-md-3" for="dischargeProblem">Discharge Problem</label>
-                            <div class="col-md-6">
-                              <textarea class="form-control" id="disProblem" name="disProblem" placeholder="Enter discharge problem" rows="2" [(ngModel)]="model.disProblem" #disProblem="ngModel"></textarea>
-                            </div>
-                          </div>  -->
 
                           <div class="form-group">
                             <label class="control-label col-md-3" for="followUpTime">Follow up Date and Time</label>
                             <div class="col-md-3 flleft">
+                                <ng2-datepicker  [options]="options" [(ngModel)]="model.date"  [ngModelOptions]="{standalone: true}"></ng2-datepicker>
+                            </div>
 
-                            <!--  <select class="form-control" name="followUpType" id="followUpType" [(ngModel)]="model.followUpType" #followUpType="ngModel" required (change)="onChange(followUpType.value)">
-                                <option *ngFor="let type of types" [ngValue]="type.value">{{type.label}}</option>
-                              </select>
-
-                              <div *ngIf="f.submitted && ( followUpType.hasError('required') || followUpTime.hasError('required'))" class="errorMsg">FollowUp time is required</div> -->
-
-
-                           <ng2-datepicker [options]="options" [(ngModel)]="date" [ngModelOptions]="{standalone: true}"></ng2-datepicker>
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-primary" *ngFor="let item of radioItems">
+                            <input type="radio" name="options" (click)="model.options = item"
+                             [checked]="item === model.options">
+                            {{item}}
+                          </label>
                         </div>
-<div>{{ debug }}</div>
-	<div class="btn-group" data-toggle="buttons">
-                        <label class="btn btn-primary" *ngFor="let item of radioItems">
-      <input type="radio" name="options" (click)="model.options = item"
-       [checked]="item === model.options">
-      {{item}}
-    </label>
-</div>
-      	<div class="btn-group" data-toggle="buttons">
-        		<label class="btn btn-primary">
-        			<input type="radio" name="opt" id="opt1" autocomplete="off">10:00 AM
-        		</label>
 
-        		<label class="btn btn-primary">
-        			<input type="radio" name="opt" id="opt2" autocomplete="off" >NOON
-        		</label>
+                        <div class="alert alert-success" role="alert">
+                            <b>Message Information</b><br/>
+                            Client Account #: <b>{{model.patientId}}</b><br/>
+                            My Cell #: <b>{{CN}}</b><br/>
+                            Client Cell Nuber #: <b>{{model.patContactNo}}</b><br/>
+                            Follow up Date and Time: <b>{{model.date}} {{model.options}}</b><br/>
+                        </div>
 
-        		<label class="btn btn-primary">
-        			<input type="radio" name="opt" id="opt3" autocomplete="off" >3:00 PM
-        		</label>
-
-        		<label class="btn btn-primary">
-        			<input type="radio" name="opt" id="opt4" autocomplete="off" >7:00 PM
-        		</label>
-        	</div>
-
-
-                           <!-- <div class="col-md-3 flleft">
-                              <select class="form-control" name="followUpTime" id="followUpTime" [(ngModel)]="model.followUpTime" #followUpTime="ngModel" required>
-                                <option *ngFor="let type of time" [ngValue]="type">{{type}}</option>
-                              </select>
-                            </div> -->
 
                           </div>
-
-                      <!--    <div class="form-group">
-                            <label class="control-label col-md-3" for="comments">Comments</label>
-                            <div class="col-md-6">
-                              <textarea class="form-control" name="comments" id="comments" placeholder="Enter a specific question for the patient" rows="2" [(ngModel)]="model.comments" #comments="ngModel"></textarea>
-                            </div>
-                          </div>  -->
 
                           <div class="form-group">
                             <label class="control-label col-md-3" for="comments">&nbsp;</label>

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DatePickerModule } from 'ng2-datepicker';
+
 
 /***************Services*****************/
 import { AuthenticationService } from './services/authentication.service';
@@ -23,7 +23,6 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    DatePickerModule,
     HttpModule,
     AppRoutingModule
   ],

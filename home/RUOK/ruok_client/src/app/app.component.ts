@@ -8,8 +8,9 @@ import { DatePickerOptions, DateModel } from 'ng2-datepicker';
 })
 export class AppComponent {
   title = 'R U OK?';
-date: DateModel;
+  date: DateModel;
   options: DatePickerOptions;
+
 
   constructor() {
     this.options = new DatePickerOptions();

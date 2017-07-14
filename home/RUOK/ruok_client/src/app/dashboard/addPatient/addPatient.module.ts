@@ -14,5 +14,6 @@ import { AddPatientComponent } from './addPatient.component';
   ],
   declarations: [AddPatientComponent]
 })
-export class AddPatientModule { }
+export class AddPatientModule {
+}
 
