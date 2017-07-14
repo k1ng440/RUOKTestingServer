@@ -12,7 +12,9 @@ import { AddPatientComponent } from './addPatient.component';
     DatePickerModule,
     FormsModule
   ],
-  declarations: [AddPatientComponent]
+  declarations: [
+  AddPatientComponent
+  ]
 })
 export class AddPatientModule {
 }
