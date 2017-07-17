@@ -13,6 +13,8 @@ import { Globals } from './globals';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+/************FX DatePicker**************/
+import {DatepickerModule} from 'ng2-bootstrap/datepicker';
 
 
 @NgModule({
@@ -22,6 +24,7 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     FormsModule,
+    DatepickerModule,
     ReactiveFormsModule,
     HttpModule,
     AppRoutingModule
@@ -33,4 +36,5 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
