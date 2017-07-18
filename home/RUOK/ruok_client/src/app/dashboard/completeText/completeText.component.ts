@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientService } from '../../services/patient.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-completeText',
@@ -8,15 +9,18 @@ import { PatientService } from '../../services/patient.service';
 })
 export class CompleteTextComponent implements OnInit {
 	msg: String;
-	data: any;
+	data: any = [];
   constructor(private patientService: PatientService) { }
 
   ngOnInit() {
   	this.patientService.getCompleted()
              .subscribe(
                 data => {
-                    if(data.status == 1) {
-                        this.data = data.patient;                  
+                    if (data.status == 1) {
+                        data.patient.forEach(elm => {
+                            elm.msgSendTime = moment(elm.msgSendTime).format('MM/DD/YYYY, hh:mm A');
+                            this.data.push(elm);
+                        });
                     } else if(data.status == 400) {
                         window.location.href = 'login';
                     } else {

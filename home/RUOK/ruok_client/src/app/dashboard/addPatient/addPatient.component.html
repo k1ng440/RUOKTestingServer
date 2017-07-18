@@ -69,7 +69,7 @@
                           <div class="form-group">
                                 <label class="control-label col-md-3" for="MsgDateTime">Follow up Date and Time</label>
                                 <div class="col-md-3 flleft">
-                                     <ng2-datepicker [options]="options" [(ngModel)]="date" [ngModelOptions]="{standalone: true}"></ng2-datepicker>
+                                     <ng2-datepicker [options]="options" [(ngModel)]="model.date" [ngModelOptions]="{standalone: true}"></ng2-datepicker>
                                 </div>
                                 <div class="btn-group" data-toggle="buttons">
                                     <label class="btn btn-primary" *ngFor="let item of radioItems">
@@ -84,7 +84,7 @@
                                     Client Account #: <b>{{model.patientId}}</b><br/>
                                     My Cell #: <b>{{CN}}</b><br/>
                                     Client Cell Nuber #: <b>{{model.patContactNo}}</b><br/>
-                                    Follow up Date: <b>{{ date ? (getFormattedDate() + date.formatted) : '' }}</b><br/>
+                                    Follow up Date: <b>{{ model.date ? (getFormattedDate() + model.date.formatted) : '' }}</b><br/>
                                     Time: <b>{{model.options}}</b><br/>
                                 </div>
                           </div>

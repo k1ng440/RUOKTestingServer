@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientService } from '../../services/patient.service';
 import { DatePickerOptions, DateModel } from 'ng2-datepicker';
+import * as moment from 'moment';
 //import { FxDatepickerComponent } from './datepicker.component';
 
 
@@ -21,7 +22,7 @@ export class AddPatientComponent implements OnInit {
   days: any;
   time: any;
   date: any;
-  radioItems = '10:00AM 12:00PM 3:00PM 7:00PM'.split(' ');
+  radioItems = '10:00 AM, 12:00 PM, 3:00 PM, 7:00 PM'.split(', ');
   constructor( private patientService: PatientService ) {
   }
 
@@ -30,17 +31,16 @@ export class AddPatientComponent implements OnInit {
   }
 
   getFormattedDate() {
-    if (!this.date)
+    if (!this.model.date)
       return;
-    return this.date.momentObj.format('dddd ');
-
+    return this.model.date.momentObj.format('dddd ');
   }
 
   addNewPatient = function(f: any) {
-
+    this.model.options = moment(this.model.date.formatted + " " + this.model.options).format('YYYY-MM-DD HH:mm:ss.SSS');
   	this.patientService.addNewPatient(this.model)
              .subscribe(
-                data => {   window.alert(JSON.stringify(this.model));
+                data => {
                 if(data.status == 1) {
                         this.success = true;
                         this.successmsg = data.message;

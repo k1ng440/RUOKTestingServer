@@ -6,10 +6,10 @@ var async = require('async'),
   LogicErrors = require(path.resolve('consts/logic_errors')),
   Patient = require('../models/patientSchema');
 
-exports.addNewPatient = function (req, res, next) {
+exports.addNewPatient = function (req, res, next) { 
   var Info = req.body;
   var random = generateToken();
-
+ 
   async.waterfall([
     function(callback) { 
         req.checkBody(PatientValidate.patientSchema());
@@ -34,19 +34,8 @@ exports.addNewPatient = function (req, res, next) {
         });
     },
     function(callback) {
-      var time;
-      var datetime = new Date();
-      if(Info.followUpType == "minute") {
-        time = Info.followUpTime;
-      }
-      if(Info.followUpType == "hour") {
-        time = Info.followUpTime * 60;
-      }
-      if(Info.followUpType == "day") {
-        time = Info.followUpTime * 24 * 60;
-      }
-      
-      var msgSendTime = Info.options;
+    
+     var msgSendTime = Info.options;
     
         var newPatient = new Patient({
           patientId: Info.patientId,
