@@ -11,7 +11,7 @@ exports.addNewPatient = function (req, res, next) {
   var random = generateToken();
 
   async.waterfall([
-    function(callback) { 
+    function(callback) {
         req.checkBody(PatientValidate.patientSchema());
         var errors = req.validationErrors();
         if (errors) {
@@ -46,17 +46,17 @@ exports.addNewPatient = function (req, res, next) {
         time = Info.followUpTime * 24 * 60;
       }
       
-      var msgSendTime = Info.options;
+      var msgSendTime = new Date(datetime.setTime(datetime.getTime() + time * 60 * 1000));
     
         var newPatient = new Patient({
           patientId: Info.patientId,
-        //  firstName: Info.firstName,
+          firstName: Info.firstName,
           proContactNo: Info.proContactNo,
           patContactNo: Info.patContactNo,
-       //   dischargeProblem: Info.disProblem,
-       //   followUpTime: Info.followUpTime,
-      //    followUpType: Info.followUpType,
-       //   comments: Info.comments,
+          dischargeProblem: Info.disProblem,
+          followUpTime: Info.followUpTime,
+          followUpType: Info.followUpType,
+          comments: Info.comments,
           msgSendTime: msgSendTime,
           providerId: req.params.providerid,
           token: random

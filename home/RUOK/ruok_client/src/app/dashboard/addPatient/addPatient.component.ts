@@ -10,7 +10,7 @@ import { DatePickerOptions, DateModel } from 'ng2-datepicker';
   styleUrls: ['./addPatient.component.scss']
 })
 export class AddPatientComponent implements OnInit {
-  model:object = { };
+  model: any = { };
   msg: string = "";
   successmsg: string = "";
   success = false;
@@ -20,38 +20,34 @@ export class AddPatientComponent implements OnInit {
   hours: any;
   days: any;
   time: any;
-  dow: any;
   date: any;
   radioItems = '10:00AM 12:00PM 3:00PM 7:00PM'.split(' ');
   constructor( private patientService: PatientService ) {
   }
 
   ngOnInit() {
-
+      this.model.proContactNo = localStorage.getItem('cellnumber');
   }
 
   getFormattedDate() {
     if (!this.date)
-      return '';
+      return;
     return this.date.momentObj.format('dddd ');
+
   }
-
-
-
-  CN:any= localStorage.getItem('cellnumber');
 
   addNewPatient = function(f: any) {
 
   	this.patientService.addNewPatient(this.model)
              .subscribe(
-                data => {
-                    if(data.status == 1) {
+                data => {   window.alert(JSON.stringify(this.model));
+                if(data.status == 1) {
                         this.success = true;
                         this.successmsg = data.message;
                         f.resetForm(this.model={followUpType: 'hour', followUpTime: 12});
                         this.time = this.hours;
                         setTimeout(()=>{
-                          this.success = false;
+                        this.success = false;
                         },2000);
                     } else if(data.status == 400) {
                         window.location.href = 'login';

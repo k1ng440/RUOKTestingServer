@@ -47,9 +47,9 @@
                               <input type="text" class="form-control" value="+1" readonly required>
                             </div>
                             <div class="col-md-5 flleft">
-                              <input type="text" class="form-control" value={{CN}} id="proContactNo" name="proContactNo" pattern="^\d+$" required>
-                              <div *ngIf="f.submitted && proContactNo.hasError('required')" class="errorMsg">Contact number is required</div>
-                              <div *ngIf="f.submitted && proContactNo.hasError('pattern')" class="errorMsg">Only digits are allowed</div>
+                              <input type="text" class="form-control" id="proContactNo" name="proContactNo" [(ngModel)]="model.proContactNo" pattern="^\d+$" required>
+                              <div *ngIf="f.submitted && proContactNo?.hasError('required')" class="errorMsg">Contact number is required</div>
+                              <div *ngIf="f.submitted && proContactNo?.hasError('pattern')" class="errorMsg">Only digits are allowed</div>
                             </div>
                           </div>
 
@@ -67,31 +67,26 @@
 
 
                           <div class="form-group">
-                            <label class="control-label col-md-3" for="followUpTime">Follow up Date and Time</label>
-                            <div class="col-md-3 flleft">
+                                <label class="control-label col-md-3" for="MsgDateTime">Follow up Date and Time</label>
+                                <div class="col-md-3 flleft">
+                                     <ng2-datepicker [options]="options" [(ngModel)]="date" [ngModelOptions]="{standalone: true}"></ng2-datepicker>
+                                </div>
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="btn btn-primary" *ngFor="let item of radioItems">
+                                    <input type="radio" name="options" (click)="model.options = item"
+                                     [checked]="item === model.options">
+                                    {{item}}
+                                  </label>
+                                </div>
 
-
-                             <ng2-datepicker [options]="options" [(ngModel)]="date" [ngModelOptions]="{standalone: true}"></ng2-datepicker>
-                           </div>
-
-                        <div class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-primary" *ngFor="let item of radioItems">
-                            <input type="radio" name="options" (click)="model.options = item"
-                             [checked]="item === model.options">
-                            {{item}}
-                          </label>
-                        </div>
-
-                        <div class="alert alert-success" role="alert">
-                            <b>Message Information</b><br/>
-                            Client Account #: <b>{{model.patientId}}</b><br/>
-                            My Cell #: <b>{{CN}}</b><br/>
-                            Client Cell Nuber #: <b>{{model.patContactNo}}</b><br/>
-                            Follow up Date: <b>{{ date ? (getFormattedDate() + date.formatted) : '' }}</b><br/>
-                            Time: <b>{{model.options}}</b><br/>
-                        </div>
-
-
+                                <div class="alert alert-success" role="alert">
+                                    <b>Message Information</b><br/>
+                                    Client Account #: <b>{{model.patientId}}</b><br/>
+                                    My Cell #: <b>{{CN}}</b><br/>
+                                    Client Cell Nuber #: <b>{{model.patContactNo}}</b><br/>
+                                    Follow up Date: <b>{{ date ? (getFormattedDate() + date.formatted) : '' }}</b><br/>
+                                    Time: <b>{{model.options}}</b><br/>
+                                </div>
                           </div>
 
                           <div class="form-group">

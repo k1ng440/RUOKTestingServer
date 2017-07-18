@@ -1,4 +1,4 @@
-<div class="container-fluid">  
+<div class="container-fluid">
     <div class="row">
         <div class="col-xl-12">
             <ol class="breadcrumb">
@@ -12,12 +12,12 @@
             </ol>
         </div>
     </div>
-          
+
     <div class="row">
         <div class="well col-lg-12">
             <div class="card card-default">
                 <div class="card-header">
-                    <i><b><u>Pending Texts</u></b></i> 
+                    <i><b><u>Pending Texts</u></b></i>
                 </div>
                 <div class="container" style="padding-top: 20px;">
                     <div class="well col-lg-12">
@@ -35,13 +35,13 @@
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let patient of mf.data">
-                                        <td> {{ patient.msgSendTime | date :'short' }} </td>
+                                        <td> {{ patient.msgSendTime }} </td>
                                         <td> {{ patient.patientId }} </td>
                                         <td> {{ patient.firstName }} </td>
                                         <td> {{ patient.patContactNo }} </td>
                                         <td> {{ patient.dischargeProblem }} </td>
                                         <td> {{ patient.comments }} </td>
-                                    </tr> 
+                                    </tr>
                                 </tbody>
                                 <tfoot>
                                     <tr>
@@ -55,12 +55,12 @@
                         </div>
                     </div>
                 </div>
-            </div>     
+            </div>
         </div>
     </div>
 </div>
 
-     
+
 
 
 

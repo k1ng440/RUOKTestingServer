@@ -15,10 +15,6 @@ exports.patientSchema = function() {
       notEmpty: true,
       errorMessage: 'Contact Number is required'
     },
-    'followUpTime': {
-      notEmpty: true,
-      errorMessage: 'Follow up time is required',
-    },
   };
   return schema;
 };
