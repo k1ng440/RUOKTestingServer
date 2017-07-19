@@ -33,18 +33,33 @@ exports.addNewPatient = function (req, res, next) {
           }
         });
     },
-    function(callback) {
-    
-     var msgSendTime = Info.options;
-    
+    function(callback) {   
+      if (Info.followUpTime) {
+              var time;
+              var datetime = new Date();
+              if(Info.followUpType == "minute") {
+                time = Info.followUpTime;
+              }
+              if(Info.followUpType == "hour") {
+                time = Info.followUpTime * 60;
+              }
+              if(Info.followUpType == "day") {
+                time = Info.followUpTime * 24 * 60;
+              }
+              
+              var msgSendTime = new Date(datetime.setTime(datetime.getTime() + time * 60 * 1000));
+      }else{
+              var msgSendTime = Info.options;
+
+      }
         var newPatient = new Patient({
           patientId: Info.patientId,
         //  firstName: Info.firstName,
           proContactNo: Info.proContactNo,
           patContactNo: Info.patContactNo,
        //   dischargeProblem: Info.disProblem,
-       //   followUpTime: Info.followUpTime,
-      //    followUpType: Info.followUpType,
+          followUpTime: Info.followUpTime,
+          followUpType: Info.followUpType,
        //   comments: Info.comments,
           msgSendTime: msgSendTime,
           providerId: req.params.providerid,

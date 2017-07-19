@@ -65,6 +65,24 @@
                             </div>
                           </div>
 
+                          <div class="form-group">
+                            <label class="control-label col-md-3" for="followUpTime">Follow up Time</label>
+                            <div class="col-md-3 flleft">
+
+                              <select class="form-control" name="followUpType" id="followUpType" [(ngModel)]="model.followUpType" #followUpType="ngModel" (change)="onChange(followUpType.value)">
+                                <option *ngFor="let type of types" [ngValue]="type.value">{{type.label}}</option>
+                              </select>
+
+                              <div *ngIf="f.submitted && ( followUpType.hasError('required') || followUpTime.hasError('required'))" class="errorMsg">FollowUp time is required</div>
+                            </div>
+
+                            <div class="col-md-3 flleft">
+                              <select class="form-control" name="followUpTime" id="followUpTime" [(ngModel)]="model.followUpTime" #followUpTime="ngModel">
+                                <option *ngFor="let type of time" [ngValue]="type">{{type}}</option>
+                              </select>
+                            </div>
+
+                          </div>
 
                           <div class="form-group">
                                 <label class="control-label col-md-3" for="MsgDateTime">Follow up Date and Time</label>
