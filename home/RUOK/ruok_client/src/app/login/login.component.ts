@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
                         localStorage.setItem('cellnumber', data.user.cellNumber);
                         localStorage.setItem('token', data.token);
                         localStorage.setItem('_id', data.user._id);
-                        window.location.href = 'dashboard/pendingText';
+                        window.location.href = 'dashboard/addPatient';
                     } else {
                         this.msg = data.message;
                     }

@@ -24,7 +24,6 @@ module.exports = function (app) {
   app.post('/api/addNewPatient/:providerid',isLoggedIn, DashboardController.addNewPatient);
   app.get('/api/getPending/:providerid',isLoggedIn, DashboardController.getPending);
   app.get('/api/getCompleted/:providerid',isLoggedIn, DashboardController.getCompleted);
-  app.get('/api/getUserProile/:cellNumber',isLoggedIn, DashboardController.getUserProfile);
   
   // =====================================
   // CLIENT SECTION =======================
