@@ -5,6 +5,7 @@ var async = require('async'),
   PatientValidate = require('../lib/validate/patientValidate'),
   LogicErrors = require(path.resolve('consts/logic_errors')),
   Patient = require('../models/patientSchema');
+  User = require('../models/userSchema')
 
 exports.addNewPatient = function (req, res, next) { 
   var Info = req.body;
@@ -115,6 +116,22 @@ exports.getCompleted = function (req, res, next) {
             res.json({status: 1, message: 'Client List', patient});
           }
         });
+};
+
+exports.getUserProfile = function (req, res, next) {
+   function(callback) {
+        User.findOne({"cellNumber": Info.cellNumber}, function(err,user) {
+          if(err){
+            callback(err);
+          }
+          else if(user){
+            res.json({status: 2, message: 'No user exist});
+          }
+          else {
+            callback(null);
+          }
+        });
+    },
 };
 
 function generateToken()

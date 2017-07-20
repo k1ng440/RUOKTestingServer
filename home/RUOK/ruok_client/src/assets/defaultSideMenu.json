@@ -1,6 +1,13 @@
 {
     "data": [
         {
+            "name": "User Profile",
+            "link": "userProfile",
+            "glyph": "fa fa-fw fa-user",
+            "children": [],
+            "collapse": false
+        },
+        {
             "name": "Pending Text",
             "link": "pendingText",
             "glyph": "fa fa-fw fa-clock-o",

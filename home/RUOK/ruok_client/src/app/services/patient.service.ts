@@ -19,6 +19,10 @@ export class PatientService {
         return this.http.get( this.globals.apiBase + 'getCompleted'+ '/' + this.id, this.jwt() ).map((response: Response) => response.json());
     }
 
+    getUserProfile() {
+        return this.http.get( this.globals.apiBase + 'getUserProfile'+ '/' + this.id, this.jwt() ).map((response: Response) => response.json());
+    }
+
     patientResponse(data: any) {
         return this.http.post( this.globals.apiBase + 'patientResponse', data ).map((response: Response) => response.json());
     }
