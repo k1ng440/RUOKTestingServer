@@ -6,6 +6,9 @@ var ClientController = require('../controllers/clientController');
 var SMSController = require('../controllers/smsController');
 var cron = require('../controllers/cronJob');
 var jwt = require('jsonwebtoken');
+var registrationValidate = require('../lib/validate/registrationValidate');
+var loginValidate = require('../lib/validate/loginValidate');
+
 // Define All Routes
 
 module.exports = function (app) {
@@ -13,9 +16,9 @@ module.exports = function (app) {
   // =====================================
   // AUTH SECTION =======================
   // =====================================
-  app.post('/api/login', AuthController.login);
+  app.post('/api/login', loginValidate, AuthController.login);
   app.post('/api/forgotPassword', AuthController.forgotpassword);
-  app.post('/api/createUser', AuthController.createuser);
+  app.post('/api/createUser', registrationValidate, AuthController.createuser);
   app.post('/api/resetPassword/:token', AuthController.resetpassword);
 
   // =====================================
