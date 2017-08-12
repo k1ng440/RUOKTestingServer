@@ -115,16 +115,25 @@ exports.createuser = function (req, res, next) {
   
   async.waterfall([
     function(callback) {
-        req.checkBody(RegUserValidate.reguserSchema());
-        var errors = req.validationErrors();
-        if (errors) {           
-          res.json( LogicErrors.VALIDATION_ERROR(errors));
-        } else {
+      console.log(RegUserValidate.reguserSchema());
+      var schema = RegUserValidate.reguserSchema();
+      req.check(schema);        // will check 'password' no matter where it is but 'email' in query params
+      req.checkQuery(schema);   // will check 'password' and 'email' in query params
+      req.checkBody(schema);    // will check 'password' in body but 'email' in query params
+      req.checkParams(schema);  // will check 'password' in path params but 'email' in query params
+      req.checkHeaders(schema);  // will check 'password' in headers but 'email' in query params
+      
+        // req.checkBody(RegUserValidate.reguserSchema());
+        req.asyncValidationErrors().then(function(errors) {
           callback(null);
-        }
+        }, function(errors) {
+          console.log(errors);
+            res.status(400).json(LogicErrors.VALIDATION_ERROR(errors));       
+        });
     },
     function(callback) {
-        User.findOne({"email": Info.email}, function(err,user) {
+      console.log('check email if unique');
+        User.findOne({ email: Info.email }, function(err, user) {
           if(err){
             callback(err);
           }
@@ -135,15 +144,16 @@ exports.createuser = function (req, res, next) {
             callback(null);
           }
         });
+      console.log('email check complete');
     },
     function(callback) {
-         
+         console.log("CREATE USER");
         var newUser = new User({
           firstName: Info.firstName,
           lastName: Info.lastName,
-	 	  email: Info.email,
-		  password: Info.password,
-		  cellNumber: Info.cellNumber
+	 	      email: Info.email,
+		      password: Info.password,
+		      cellNumber: Info.cellNumber
         });
         
         newUser.save(function(err, result){

@@ -1,0 +1,33 @@
+	.errorMsg {
+        float: left;
+        color: rgba(255,0,0,0.8);
+    }
+   .successMsg {
+   		color: #008000;
+      font-size: 20px;
+   }
+
+   .form-group .control-label {float:left;}
+   .form-group .col-md-6 {float:left;}
+   .form-group { float: left;    margin-bottom: 1rem;    width: 100%;}
+   .flleft {float:left;}
+
+
+   .mobile-input-ss .col-md-5 {
+    padding-left: 0;
+    }
+    .mobile-input-ss .col-md-1 {
+        padding-right: 0;
+    }
+
+  .full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+  }
+
+  .partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+  }

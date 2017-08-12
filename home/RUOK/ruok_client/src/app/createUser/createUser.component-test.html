@@ -1,0 +1,51 @@
+<div class="createUser-page">
+		<div class="row">
+			<div class="col-lg-4 offset-lg-4">
+				<img class="user-avatar" src="assets/img/SB-admin.png" width="150px;">
+				<h1>New User Registration</h1>
+				<div class="alert alert-success">
+					<strong>{{successmsg}}</strong>
+				</div>
+				<div class="alert alert-danger">
+					<strong>{{msg}}</strong>
+				</div>
+				<form role="form">
+					<div class="form-content">
+						<div class="form-group">
+							<input class="form-control input-underline input-lg" id="firstName" name="firstName" placeholder="First Name" required="" type="text">
+							<div *ngIf="f.submitted && firstName.hasError('required')" class="errorMsg">First Name is required</div>
+								First Name is required
+							</div>
+						</div>
+						<div class="form-group">
+							<input class="form-control input-underline input-lg" id="lastName" name="lastName" placeholder="Last Name" required="" type="text">
+							<div class="errorMsg">
+								Last Name is required
+							</div>
+						</div>
+						<div class="form-group">
+							<input class="form-control input-underline input-lg" id="email" name="email" placeholder="Email" required="" type="text">
+							<div class="errorMsg">
+								Email is required
+							</div>
+						</div>
+						<div class="form-group">
+							<input class="form-control input-underline input-lg" id="cellNumber" name="cellNumber" placeholder="Cell Phone Number" required="" type="text">
+							<div class="errorMsg">
+								Cell Number is required
+							</div>
+						</div>
+						<div class="form-group">
+							<input class="form-control input-underline input-lg" id="password" name="password" placeholder="Password" required="" type="password">
+							<div class="errorMsg">
+								Password is required
+							</div>
+						</div>
+					</div>
+					<div class="errorMsg">
+						{{ msg }}
+					</div><button class="btn rounded-btn" type="submit">Save</button> &nbsp; <a class="btn rounded-btn">Cancel</a>
+				</form>
+			</div>
+		</div>
+	</div>

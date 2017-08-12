@@ -66,7 +66,7 @@ gulp.task('prod', function (done) {
 
 // Run the project in development mode
 gulp.task('default', function (done) {
-  runSequence('env:dev', 'eslint', 'pm2', 'watch', done);
+  runSequence('env:dev', 'pm2', 'watch', done);
   // runSequence('env:dev', 'pm2:dev', 'watch', done);
 });
 

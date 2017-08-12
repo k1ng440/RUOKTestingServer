@@ -19,5 +19,3 @@ exports.loginSchema = function() {
   };
   return schema;
 };
-
-

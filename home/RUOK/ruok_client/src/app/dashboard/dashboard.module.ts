@@ -9,8 +9,8 @@ import { PendingTextModule } from './pendingText/pendingText.module';
 import { CompleteTextModule } from './completeText/completeText.module';
 import { AddPatientModule } from './addPatient/addPatient.module';
 import { BsComponentModule } from './bs-components/bs-components.module';
-
 import { DashboardComponent } from './dashboard.component';
+import { UpdatePatientModule } from "./updatePatient/updatePatient.module";
 
 @NgModule({
   imports: [
@@ -21,6 +21,7 @@ import { DashboardComponent } from './dashboard.component';
     PendingTextModule,
     CompleteTextModule,
     AddPatientModule,
+    UpdatePatientModule,
     BsComponentModule
   ],
   declarations: [

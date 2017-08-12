@@ -14,11 +14,6 @@ export class AuthenticationService {
 
     }
 
-    createUser(data: any) {
-       return this.http.post( this.globals.apiBase + 'createUser', data ).map((response: Response) => response.json());
-
-    }
-
     forgotPassword(data: any) {
         return this.http.post( this.globals.apiBase + 'forgotPassword', data )
             .map((response: Response) => response.json());

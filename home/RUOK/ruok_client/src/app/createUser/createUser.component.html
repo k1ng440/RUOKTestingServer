@@ -9,35 +9,43 @@
          <div class="alert alert-danger" *ngIf="error">
              <strong>{{msg}}</strong>
         </div>
-			<form role="form" #f="ngForm" (ngSubmit)="f.form.valid && createUser()">
-							<div class="form-content">
+			<!-- f.form.valid &&     needs to go back in-->
+			<form role="form" #f="ngForm" (ngSubmit)="createUser()">
+				<div class="form-content">
         	<div class="form-group">
 						<input type="text" class="form-control input-underline input-lg" id="firstName" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" placeholder="First Name" required>
-						<div *ngIf="f.submitted && firstName.hasError('required')" class="errorMsg">First Name is required</div>
+						<!-- <div *ngIf="f.submitted && firstName.hasError('required')" class="errorMsg">First Name is required</div> -->
+					</div>
+
+        	<div class="form-group">
+						<input type="text" class="form-control input-underline input-lg" id="lastName" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" placeholder="Last Name" required>
+					<!--	<div *ngIf="f.submitted && lastName.hasError('required')" class="errorMsg">Last Name is required</div>  -->
 					</div>
 
 					<div class="form-group">
-						<input type="text" class="form-control input-underline input-lg" id="lastName" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" placeholder="Last Name" required>
-						<div *ngIf="f.submitted && lastName.hasError('required')" class="errorMsg">Last Name is required</div>
+						<input type="text" class="form-control input-underline input-lg" id="email" name="email" [(ngModel)]="model.email" #email="ngModel" placeholder="Email" required><!--pattern="^[a-zA-Z0-9.#$%]+@[a-zA-Z]+[\.][A-Za-z]{2,}$" -->
+					<!--	<div *ngIf="f.submitted && email.hasError('required')" class="errorMsg">Email is required</div>  -->
+                    <!-- <div *ngIf="f.submitted && email.hasError('pattern')" class="errorMsg">Invalid Email Address</div> -->
 					</div>
 
-				<div class="form-group">
-						<input type="text" class="form-control input-underline input-lg" id="email" name="email" [(ngModel)]="model.email" #email="ngModel" placeholder="Email" required>
-						<div *ngIf="f.submitted && email.hasError('required')" class="errorMsg">Email is required</div>
-					</div>
-
-		  	<div class="form-group">
+					<div class="form-group">
 						<input type="password" class="form-control input-underline input-lg" id="password" name="password" [(ngModel)]="model.password" #password="ngModel" placeholder="Password" required>
-						<div *ngIf="f.submitted && !password.valid" class="errorMsg">Password is required</div>
+					<!--	<div *ngIf="f.submitted && !password.valid" class="errorMsg">Password is required</div>  -->
 					</div>
 
-       <div class="form-group">
-						<input type="text" class="form-control input-underline input-lg" id="cellNumber" name="cellNumber" [(ngModel)]="model.cellNumber" #cellNumber="ngModel" placeholder="Cell Phone Number" required>
-						<div *ngIf="f.submitted && cellNumber.hasError('required')" class="errorMsg">Cell Number is required</div>
+					<div class="form-group">
+						<input type="password" class="form-control input-underline input-lg" id="Verifypassword" name="Verifypassword" [(ngModel)]="model.Verifypassword" #Verifypassword="ngModel" placeholder="ReType Password" required>
+					<!--	<div *ngIf="f.submitted && !Verifypassword.valid" class="errorMsg">Must Retype Password to verify</div>  -->
 					</div>
 
-         </div>
-		  	<div class="errorMsg"> {{ msg }} </div>
+                    <div class="form-group">
+						<input type="text" class="form-control input-underline input-lg" id="cellnumber" name="cellnumber" [(ngModel)]="model.cellnumber" #cellnumber="ngModel" placeholder="Cell Phone Number" required> <!-- pattern="/^[7-9][0-9]{9}$/" -->
+					<!--	<div *ngIf="f.submitted && email.hasError('required')" class="errorMsg">Cell Number is required</div> -->
+                    <!--  <div *ngIf="f.submitted && email.hasError('pattern')" class="errorMsg">Invalid Cell Number</div>  -->
+					</div>
+
+				</div>
+				<div class="errorMsg"> {{ msg }} </div>
 
 				<button type="submit" class="btn rounded-btn"> Save </button>&nbsp;
 				<a  class="btn rounded-btn" routerLink="/"> Cancel </a>

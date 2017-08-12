@@ -24,6 +24,7 @@ import { TabsSampleComponent } from './bs-components/tabs-sample/tabs-sample.com
 import { TimepickerSampleComponent } from './bs-components/timepicker-sample/timepicker-sample.component';
 import { TooltipSampleComponent } from './bs-components/tooltip-sample/tooltip-sample.component';
 import { TypeaheadSampleComponent } from './bs-components/typeahead-sample/typeahead-sample.component';
+import { UpdatePatientComponent } from "./updatePatient/updatePatient.component";
 
 const dashboardRoutes: Routes = [
     {
@@ -32,6 +33,7 @@ const dashboardRoutes: Routes = [
             { path: 'pendingText', component: PendingTextComponent },
             { path: 'completedText', component: CompleteTextComponent },
             { path: 'addPatient', component: AddPatientComponent },
+            { path: 'updatePatient', component: UpdatePatientComponent },
             {
                 path: 'components', component: BsComponentsComponent,
                 children: [

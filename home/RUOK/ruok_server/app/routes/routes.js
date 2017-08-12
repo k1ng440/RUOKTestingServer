@@ -2,6 +2,7 @@
 
 var AuthController = require('../controllers/authController');
 var DashboardController = require('../controllers/dashboardController');
+var UserController = require('../controllers/userController');
 var ClientController = require('../controllers/clientController');
 var SMSController = require('../controllers/smsController');
 var cron = require('../controllers/cronJob');
@@ -21,6 +22,11 @@ module.exports = function (app) {
   // =====================================
   // DASHBOARD SECTION =======================
   // =====================================
+  
+  // User
+  app.get('/api/user/:id', isLoggedIn, UserController.getProfile);
+  app.put('/api/user/:id', isLoggedIn, UserController.updateProfile);
+  
   app.post('/api/addNewPatient/:providerid',isLoggedIn, DashboardController.addNewPatient);
   app.get('/api/getPending/:providerid',isLoggedIn, DashboardController.getPending);
   app.get('/api/getCompleted/:providerid',isLoggedIn, DashboardController.getCompleted);

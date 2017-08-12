@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
+import { UserService } from "../services/user.service";
 
 @Component({
   selector: 'app-createUser',
@@ -7,19 +8,19 @@ import { AuthenticationService } from '../services/authentication.service';
   styleUrls: ['./createUser.component.scss']
 })
 export class CreateUserComponent implements OnInit {
-  model: object = {};
+  model: any = { };
   msg: String = "";
   successmsg: String = "";
   success = false;
   error = false;
   types: any;
-  constructor( private authenticationService: AuthenticationService ) { }
+  constructor( private userService: UserService ) { }
 
   ngOnInit() {
   }
 
   createUser = function(f: any) {
-  	this.authenticationService.createUser(this.model)
+  	this.userService.createUser(this.model)
              .subscribe(
                 data => {
                     if(data.status == 1) {

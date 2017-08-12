@@ -2,7 +2,7 @@
     "data": [
         {
             "name": "User Profile",
-            "link": "userProfile",
+            "link": "updatePatient",
             "glyph": "fa fa-fw fa-user",
             "children": [],
             "collapse": false

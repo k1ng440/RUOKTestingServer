@@ -3,9 +3,5 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class Globals {
-	apiBase:any;
-    constructor() {
-   this.apiBase = "http://127.0.0.1:8081/api/";
-    }
-
+	apiBase = 'http://127.0.0.1:8081/api/';
 }

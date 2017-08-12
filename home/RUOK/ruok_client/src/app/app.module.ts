@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 /************FX DatePicker**************/
 import {DatepickerModule} from 'ng2-bootstrap/datepicker';
+import { UserService } from "./services/user.service";
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import {DatepickerModule} from 'ng2-bootstrap/datepicker';
   providers: [
     AuthenticationService,
     PatientService,
+    UserService,
     Globals
   ],
   bootstrap: [AppComponent]
